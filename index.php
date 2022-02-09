@@ -23,7 +23,7 @@ $tranche = [
 	new Tranche (151,210,0.9451),
 	new Tranche (211,310,1.0489),
 	new Tranche (311,510,1.2915),
-	new Tranche (510,null,1.4975)
+	new Tranche (510,INF,1.4975)
 ];
 if(isset($_POST['send'])){
 	$calibre = $_POST["calibre"];
@@ -76,19 +76,9 @@ if(isset($_POST['send'])){
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<div class="card text-center">
-	<form method="POST" action="index.php">
-		<input type="text" name="firstI">
-		<input type="text" name="secondI">
-		<input type="submit" name="send" value="send">
-		<input type="radio" name="calibre" value="small">5-10
-		<input type="radio" name="calibre" value="medium">15-20
-		<input type="radio" name="calibre" value="large">>30
-	</form>
-</div>
-
+	<h3 class="display-4">Facture d'électricité simulée	</h3>
 	<table class="table table-striped mt-5">
-		  <thead>
+		  <thead class="thead-dark">
 		    <tr>
 		      <th scope="col">Montant</th>
 		      <th scope="col">Prix unitaire</th>
@@ -132,13 +122,26 @@ if(isset($_POST['send'])){
 			</tr>
 		  </tbody>
 	</table>
-	<div class="card text-center">
+<div class="containerr">
+	<div id="form" class="card border-light mb-3">
+	<form method="POST" action="index.php">
+		<input type="text" name="firstI"><br>
+		<input type="text" name="secondI"><br>
+		<input type="radio" name="calibre" value="small">5-10
+		<input type="radio" name="calibre" value="medium">15-20
+		<input type="radio" name="calibre" value="large">30+<br>
+		<input class="btn btn-dark" type="submit" name="send" value="send">
+	</form>
+	</div>
+
+	<div id="card" class="card border-light mb-3">
 		  <div class="card-header">
 		    Votre total est de : 
 		  </div>
 		  <div class="card-body">
-		    <h5 class="card-title"> <?php echo $montantTTC?></h5>
-  		</div>
+		   <h5 class="card-title"> <?php echo $montantTTC?></h5>
+ 	</div>
+</div>
 
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
