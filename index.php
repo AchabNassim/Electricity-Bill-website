@@ -76,7 +76,7 @@ if(isset($_POST['send'])){
 	<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-	<div id="form">
+	<div class="card text-center">
 	<form method="POST" action="index.php">
 		<input type="text" name="firstI">
 		<input type="text" name="secondI">
